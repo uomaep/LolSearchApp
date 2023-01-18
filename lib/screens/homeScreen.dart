@@ -10,44 +10,39 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        FocusManager.instance.primaryFocus?.unfocus();
-      },
-      child: MaterialApp(
-        home: Scaffold(
-          resizeToAvoidBottomInset: false,
-          backgroundColor: const Color(0xFF171719),
-          appBar: AppBar(
-            elevation: 0,
-            backgroundColor: const Color(0xFF1c1c1f),
-            title: Row(
-              children: const [
-                Text(
-                  "OP.GG",
-                  style: TextStyle(
-                    color: Color(0xFF5383e8),
-                    fontSize: 30,
-                    fontWeight: FontWeight.w800,
-                  ),
+    return MaterialApp(
+      home: Scaffold(
+        resizeToAvoidBottomInset: false,
+        backgroundColor: const Color(0xFF171719),
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: const Color(0xFF1c1c1f),
+          title: Row(
+            children: const [
+              Text(
+                "OP.GG",
+                style: TextStyle(
+                  color: Color(0xFF5383e8),
+                  fontSize: 30,
+                  fontWeight: FontWeight.w800,
                 ),
-              ],
-            ),
-          ),
-          body: Column(
-            children: [
-              const SearchBar(),
-              Container(
-                margin: const EdgeInsets.only(
-                  top: 10,
-                  bottom: 10,
-                ),
-                child: Image.asset('assets/images/2022_awards.png'),
               ),
-              const Favorites(),
-              const PatchNotes(),
             ],
           ),
+        ),
+        body: Column(
+          children: [
+            const SearchBar(),
+            Container(
+              margin: const EdgeInsets.only(
+                top: 10,
+                bottom: 10,
+              ),
+              child: Image.asset('assets/images/2022_awards.png'),
+            ),
+            const Favorites(),
+            const PatchNotes(),
+          ],
         ),
       ),
     );
