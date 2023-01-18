@@ -9,6 +9,7 @@ class Favorites extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.only(bottom: 10),
       padding: const EdgeInsets.all(10),
       color: const Color(0xFF1c1c1f),
       width: double.infinity,
