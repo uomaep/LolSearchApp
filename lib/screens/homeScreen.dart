@@ -25,11 +25,7 @@ class HomeScreen extends StatelessWidget {
         body: Column(
           children: [
             const SearchBar(),
-            Container(
-              height: 40,
-              color: Colors.red,
-              child: Text("Hello"),
-            ),
+            Image.asset('assets/images/2022_awards.png'),
             Container(
               height: 40,
               color: Colors.blue,
