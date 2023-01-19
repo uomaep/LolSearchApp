@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../screens/detailScreen.dart';
+
 class SearchBar extends StatefulWidget {
   const SearchBar({
     Key? key,
@@ -21,6 +23,12 @@ class _SearchBarState extends State<SearchBar> {
     setState(() {
       isActivity = false;
     });
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => DetailScreen(inputText: inputText),
+      ),
+    );
   }
 
   void _handleCanceled() {
@@ -89,7 +97,7 @@ class _SearchBarState extends State<SearchBar> {
           ),
           isActivity
               ? Flexible(
-                  flex: 0,
+                  flex: 1,
                   child: TextButton(
                     onPressed: _handleCanceled,
                     child: const Text(
