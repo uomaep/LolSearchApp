@@ -1,7 +1,10 @@
+import 'package:app/services/apiServices.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class DetailScreen extends StatelessWidget {
+import '../models/summonerModel.dart';
+
+class DetailScreen extends StatefulWidget {
   const DetailScreen({
     Key? key,
     required this.inputText,
@@ -10,13 +13,27 @@ class DetailScreen extends StatelessWidget {
   final String inputText;
 
   @override
+  State<DetailScreen> createState() => _DetailScreenState();
+}
+
+class _DetailScreenState extends State<DetailScreen> {
+  late Future<Summoner> summoner;
+
+  @override
+  void initState() {
+    super.initState();
+    summoner = ApiServices.getSummoner(widget.inputText);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFF1c1c1f),
       appBar: AppBar(
         backgroundColor: const Color(0xFF1c1c1f),
         elevation: 0,
         title: Text(
-          inputText,
+          widget.inputText,
           style: const TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w700,
@@ -32,7 +49,9 @@ class DetailScreen extends StatelessWidget {
           ),
         ],
       ),
-      backgroundColor: const Color(0xFF1c1c1f),
+      body: Column(
+        children: [],
+      ),
     );
   }
 }

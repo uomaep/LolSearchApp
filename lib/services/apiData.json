@@ -1,72 +1,63 @@
 {
   "summoners" : [
     {
-      "id": "1직진개",
-      "nickName": "직진개",
+      "id": "직진개",
       "wins": 1000,
       "losses": 100,
       "tier": "플레티넘",
       "rank": 1
     },
     {
-      "id": "2Faker",
-      "nickName": "Faker",
+      "id": "Faker",
       "wins": 3120,
       "losses": 1200,
       "tier": "챌린저",
       "rank": 1
     },
     {
-      "id": "3JustLikeThat",
-      "nickName": "JustLikeThat",
+      "id": "JustLikeThat",
       "wins": 2650,
       "losses": 1421,
       "tier": "마스터",
       "rank": 1
     },
     {
-      "id": "4두웬사냥꾼",
-      "nickName": "두웬사냥꾼",
+      "id": "두웬사냥꾼",
       "wins": 859,
       "losses": 85,
       "tier": "챌린저",
       "rank": 1
     },
     {
-      "id": "5추억에살아",
-      "nickName": "추억에살아",
+      "id": "추억에살아",
       "wins": 23,
       "losses": 85,
       "tier": "실버",
       "rank": 2
     },
     {
-      "id": "6영똑2",
-      "nickName": "영똑2",
+      "id": "영똑2",
       "wins": 104,
       "losses": 85,
       "tier": "골드",
       "rank": 3
     },
     {
-      "id": "7화희",
-      "nickName": "화희",
+      "id": "화희",
       "wins": 542,
       "losses": 483,
       "tier": "다이아",
       "rank": 2
     },
     {
-      "id": "8BioScience",
-      "nickName": "BioScience",
+      "id": "BioScience",
       "wins": 1105,
       "losses": 7,
       "tier": "마스터",
       "rank": 1
     },
     {
-      "id": "9TXT최수빈",
-      "nickName": "TXT최수빈",
+      "id": "TXT최수빈",
       "wins": 1800,
       "losses": 0,
       "tier": "챌린저",
@@ -75,7 +66,7 @@
   ],
   "histories" : [
     {
-      "id": "1직진개",
+      "id": "직진개",
       "matchHistory": [
         {
           "champion": "루시안",
@@ -170,7 +161,7 @@
       ]
     },
     {
-      "id": "2Faker",
+      "id": "Faker",
       "matchHistory": [
         {
           "champion": "신드라",
@@ -265,7 +256,7 @@
       ]
     },
     {
-      "id": "3JustLikeThat",
+      "id": "JustLikeThat",
       "matchHistory": [
         {
           "champion": "리신",
@@ -330,7 +321,7 @@
       ]
     },
     {
-      "id": "4두웬사냥꾼",
+      "id": "두웬사냥꾼",
       "matchHistory": [
         {
           "champion": "야스오",
@@ -395,7 +386,7 @@
       ]
     },
     {
-      "id": "5추억에살아",
+      "id": "추억에살아",
       "matchHistory": [
         {
           "champion": "케이틀린",
@@ -475,7 +466,7 @@
       ]
     },
     {
-      "id": "6영똑2",
+      "id": "영똑2",
       "matchHistory": [
         {
           "champion": "쓰레쉬",
@@ -540,7 +531,7 @@
       ]
     },
     {
-      "id": "7화희",
+      "id": "화희",
       "matchHistory": [
         {
           "champion": "아리",
@@ -635,7 +626,7 @@
       ]
     },
     {
-      "id": "8BioScience",
+      "id": "BioScience",
       "matchHistory": [
         {
           "champion": "아칼리",
@@ -730,7 +721,7 @@
       ]
     },
     {
-      "id": "9TXT최수빈",
+      "id": "TXT최수빈",
       "matchHistory": [
         {
           "champion": "아리",
