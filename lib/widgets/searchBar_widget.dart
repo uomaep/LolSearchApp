@@ -1,3 +1,4 @@
+import 'package:app/services/apiServices.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -23,6 +24,7 @@ class _SearchBarState extends State<SearchBar> {
     setState(() {
       isActivity = false;
     });
+    if (inputText == '') return;
     Navigator.push(
       context,
       MaterialPageRoute(
