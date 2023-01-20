@@ -1,6 +1,6 @@
 class Histories {
   final String id;
-  final List<Map<String, dynamic>> histories;
+  final List<dynamic> histories;
 
   Histories.fromJson(Map<String, dynamic> json)
       : id = json['id'],

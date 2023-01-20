@@ -1,5 +1,5 @@
+import 'package:app/models/historiesModel.dart';
 import 'package:app/services/apiServices.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../models/summonerModel.dart';
@@ -18,11 +18,13 @@ class DetailScreen extends StatefulWidget {
 
 class _DetailScreenState extends State<DetailScreen> {
   late Future<Summoner> summoner;
+  late Future<Histories> histories;
 
   @override
   void initState() {
     super.initState();
     summoner = ApiServices.getSummoner(widget.inputText);
+    histories = ApiServices.getLatestHistoriesById(widget.inputText);
   }
 
   @override
@@ -50,7 +52,60 @@ class _DetailScreenState extends State<DetailScreen> {
         ],
       ),
       body: Column(
-        children: [],
+        children: [
+          FutureBuilder(
+            future: summoner,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                var user = snapshot.data!;
+                return Row(
+                  children: [
+                    Text(
+                      user.id,
+                      style: const TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                    Text(
+                      user.tier,
+                      style: const TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                    Text(
+                      "${user.wins}",
+                      style: const TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                    Text(
+                      "${user.losses}",
+                      style: const TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                );
+              } else {
+                return Container();
+              }
+            },
+          ),
+          FutureBuilder(
+            future: histories,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                var latestHistories = snapshot.data!.histories;
+                print(latestHistories);
+                return Row(
+                  children: const [],
+                );
+              } else {
+                return Container();
+              }
+            },
+          ),
+        ],
       ),
     );
   }

@@ -5,16 +5,14 @@ import '../models/summonerModel.dart';
 import 'package:http/http.dart' as http;
 
 class ApiServices {
-  static const String baseUrl = "http://localhost:3005";
+  static const String baseUrl = "http://localhost:3001";
 
   static Future<Summoner> getSummoner(String nickName) async {
-    final url = Uri.parse(
-        "https://049e6a40-aa77-43b0-ac04-a584e6b32e98.mock.pstmn.io/test");
+    final url = Uri.parse("$baseUrl/summoners/$nickName");
     final response = await http.get(url);
 
     if (response.statusCode == 200) {
       var summoner = jsonDecode(response.body);
-      print(summoner);
       return Summoner.fromJson(summoner);
     }
 
