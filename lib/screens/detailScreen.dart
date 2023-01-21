@@ -1,4 +1,5 @@
 import 'package:app/models/historiesModel.dart';
+import 'package:app/models/historyModel.dart';
 import 'package:app/services/apiServices.dart';
 import 'package:flutter/material.dart';
 
@@ -96,7 +97,10 @@ class _DetailScreenState extends State<DetailScreen> {
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 var latestHistories = snapshot.data!.histories;
-                print(latestHistories);
+                for (Map<String, dynamic> history in latestHistories) {
+                  History tmp = History.fromJson(history);
+                  print(tmp);
+                }
                 return Row(
                   children: const [],
                 );
