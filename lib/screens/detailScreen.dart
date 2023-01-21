@@ -31,17 +31,11 @@ class _DetailScreenState extends State<DetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF1c1c1f),
+      extendBodyBehindAppBar: true,
+      backgroundColor: const Color(0xFF171719),
       appBar: AppBar(
-        backgroundColor: const Color(0xFF1c1c1f),
+        backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Text(
-          widget.inputText,
-          style: const TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w700,
-          ),
-        ),
         actions: [
           IconButton(
             onPressed: () {},
@@ -52,64 +46,115 @@ class _DetailScreenState extends State<DetailScreen> {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          FutureBuilder(
-            future: summoner,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                var user = snapshot.data!;
-                return Row(
-                  children: [
-                    Text(
-                      user.id,
-                      style: const TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                    Text(
-                      user.tier,
-                      style: const TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                    Text(
-                      "${user.wins}",
-                      style: const TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                    Text(
-                      "${user.losses}",
-                      style: const TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
-                );
-              } else {
-                return Container();
-              }
-            },
+      body: SingleChildScrollView(
+        child: SizedBox(
+          height: 1000,
+          child: Column(
+            children: [
+              FutureBuilder(
+                future: summoner,
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    return Column(
+                      children: [
+                        Container(
+                          height: 150,
+                          color: const Color(0xFF1c1c1f),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 25,
+                            horizontal: 20,
+                          ),
+                          width: double.infinity,
+                          color: const Color(0xFF1c1c1f),
+                          child: Row(
+                            children: [
+                              Container(
+                                width: 100,
+                                height: 100,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(30),
+                                  border: Border.all(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(width: 20),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: const [
+                                  Text(
+                                    "직진개",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  Text(
+                                    "래더 랭킹-",
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          color: const Color(0xFF1c1c1f),
+                          child: Row(
+                            children: [
+                              ElevatedButton(
+                                onPressed: () {},
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: const Color(0xFF5383e8),
+                                ),
+                                child: const Text("전적 갱신"),
+                              ),
+                              ElevatedButton(
+                                onPressed: () {},
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.grey,
+                                ),
+                                child: const Text("인게임"),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    );
+                  } else {
+                    return Container();
+                  }
+                },
+              ),
+              FutureBuilder(
+                future: histories,
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    var latestHistories = snapshot.data!.histories;
+                    for (Map<String, dynamic> history in latestHistories) {
+                      History tmp = History.fromJson(history);
+                      print(tmp);
+                    }
+                    return Column(
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.only(bottom: 10),
+                        ),
+                      ],
+                    );
+                  } else {
+                    return Container();
+                  }
+                },
+              ),
+            ],
           ),
-          FutureBuilder(
-            future: histories,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                var latestHistories = snapshot.data!.histories;
-                for (Map<String, dynamic> history in latestHistories) {
-                  History tmp = History.fromJson(history);
-                  print(tmp);
-                }
-                return Row(
-                  children: const [],
-                );
-              } else {
-                return Container();
-              }
-            },
-          ),
-        ],
+        ),
       ),
     );
   }
