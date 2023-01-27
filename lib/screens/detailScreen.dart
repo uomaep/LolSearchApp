@@ -106,18 +106,24 @@ class _DetailScreenState extends State<DetailScreen> {
                         Container(
                           color: const Color(0xFF1c1c1f),
                           child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               ElevatedButton(
                                 onPressed: () {},
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: const Color(0xFF5383e8),
+                                  minimumSize: const Size(200, 50),
                                 ),
                                 child: const Text("전적 갱신"),
+                              ),
+                              const SizedBox(
+                                width: 10,
                               ),
                               ElevatedButton(
                                 onPressed: () {},
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.grey,
+                                  minimumSize: const Size(200, 50),
                                 ),
                                 child: const Text("인게임"),
                               )
@@ -136,15 +142,19 @@ class _DetailScreenState extends State<DetailScreen> {
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
                     var latestHistories = snapshot.data!.histories;
+                    List<History> histories = [];
                     for (Map<String, dynamic> history in latestHistories) {
                       History tmp = History.fromJson(history);
-                      print(tmp);
+                      histories.add(tmp);
                     }
                     return Column(
                       children: [
-                        Container(
-                          margin: const EdgeInsets.only(bottom: 10),
-                        ),
+                        for (var h in histories)
+                          Container(
+                            margin: const EdgeInsets.only(top: 10),
+                            height: 100,
+                            color: Colors.white,
+                          ),
                       ],
                     );
                   } else {
