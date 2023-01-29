@@ -47,8 +47,7 @@ class _DetailScreenState extends State<DetailScreen> {
         ],
       ),
       body: SingleChildScrollView(
-        child: SizedBox(
-          height: 1000,
+        child: Expanded(
           child: Column(
             children: [
               FutureBuilder(
@@ -137,6 +136,7 @@ class _DetailScreenState extends State<DetailScreen> {
                   }
                 },
               ),
+              const SizedBox(height: 20),
               FutureBuilder(
                 future: histories,
                 builder: (context, snapshot) {
@@ -153,7 +153,7 @@ class _DetailScreenState extends State<DetailScreen> {
                           Container(
                             margin: const EdgeInsets.only(top: 10),
                             height: 100,
-                            color: Colors.white,
+                            color: h.result ? Colors.blue : Colors.red,
                           ),
                       ],
                     );
