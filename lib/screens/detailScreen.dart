@@ -82,16 +82,16 @@ class _DetailScreenState extends State<DetailScreen> {
                               const SizedBox(width: 20),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
+                                children: [
                                   Text(
-                                    "직진개",
-                                    style: TextStyle(
+                                    widget.inputText,
+                                    style: const TextStyle(
                                       color: Colors.white,
                                       fontSize: 25,
                                       fontWeight: FontWeight.w600,
                                     ),
                                   ),
-                                  Text(
+                                  const Text(
                                     "래더 랭킹-",
                                     style: TextStyle(
                                       color: Colors.grey,
@@ -153,7 +153,24 @@ class _DetailScreenState extends State<DetailScreen> {
                           Container(
                             margin: const EdgeInsets.only(top: 10),
                             height: 100,
-                            color: h.result ? Colors.blue : Colors.red,
+                            color: const Color.fromARGB(255, 33, 33, 36),
+                            child: Row(children: [
+                              Container(
+                                color: h.result ? Colors.blue : Colors.red,
+                                width: 50,
+                                child: Center(
+                                  child: Text(
+                                    h.result ? "승" : "패",
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Container(),
+                            ]),
                           ),
                       ],
                     );
