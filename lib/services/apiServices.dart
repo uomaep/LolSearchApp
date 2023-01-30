@@ -16,7 +16,7 @@ class ApiServices {
       return Summoner.fromJson(summoner);
     }
 
-    throw Error();
+    throw Exception("해당 소환사가 존재하지 않습니다!");
   }
 
   static Future<Histories> getLatestHistoriesById(String id) async {

@@ -45,6 +45,25 @@ class _DetailScreenState extends State<DetailScreen> {
     }
   }
 
+  String checkTier(String tier) {
+    switch (tier) {
+      case "챌린저":
+        return "challenger.webp";
+      case "마스터":
+        return "master.webp";
+      case "다이아몬드":
+        return "diamond.webp";
+      case "플레티넘":
+        return "platinum.webp";
+      case "골드":
+        return "gold.webp";
+      case "실버":
+        return "sliver.webp";
+      default:
+        return "unrank.webp";
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -89,12 +108,15 @@ class _DetailScreenState extends State<DetailScreen> {
                               Container(
                                 width: 100,
                                 height: 100,
+                                clipBehavior: Clip.hardEdge,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(30),
                                   border: Border.all(
                                     color: Colors.white,
                                   ),
                                 ),
+                                child: Image.asset(
+                                    "assets/images/tier/${checkTier(snapshot.data!.tier)}"),
                               ),
                               const SizedBox(width: 20),
                               Column(
@@ -189,6 +211,7 @@ class _DetailScreenState extends State<DetailScreen> {
                               Container(
                                 padding: const EdgeInsets.all(10),
                                 child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Row(
                                       children: [
@@ -266,6 +289,56 @@ class _DetailScreenState extends State<DetailScreen> {
                                               ),
                                             ),
                                           ],
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(height: 5),
+                                    Row(
+                                      children: [
+                                        for (var item in h.items)
+                                          item == ""
+                                              ? Container(
+                                                  width: 30,
+                                                  height: 30,
+                                                  clipBehavior: Clip.hardEdge,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                  ),
+                                                  margin: const EdgeInsets.only(
+                                                      right: 3),
+                                                  child: Container(
+                                                      color:
+                                                          const Color.fromARGB(
+                                                              255, 53, 47, 47)),
+                                                )
+                                              : Container(
+                                                  width: 30,
+                                                  height: 30,
+                                                  clipBehavior: Clip.hardEdge,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                  ),
+                                                  margin: const EdgeInsets.only(
+                                                      right: 3),
+                                                  child: Image.asset(
+                                                      "assets/images/items/$item.webp"),
+                                                ),
+                                        Container(
+                                          width: 30,
+                                          height: 30,
+                                          clipBehavior: Clip.hardEdge,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                          ),
+                                          margin:
+                                              const EdgeInsets.only(right: 3),
+                                          child: Image.asset(
+                                              "assets/images/items/${h.totem}.webp"),
                                         ),
                                       ],
                                     ),
