@@ -238,6 +238,35 @@ class _DetailScreenState extends State<DetailScreen> {
                                             ],
                                           ),
                                         ),
+                                        const SizedBox(width: 15),
+                                        Row(
+                                          children: [
+                                            Text(
+                                              "${h.kda[0]} /",
+                                              style: const TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                            ),
+                                            Text(
+                                              " ${h.kda[1]} ",
+                                              style: const TextStyle(
+                                                color: Colors.red,
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                            ),
+                                            Text(
+                                              "/ ${h.kda[2]}",
+                                              style: const TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ],
                                     ),
                                   ],
