@@ -28,6 +28,23 @@ class _DetailScreenState extends State<DetailScreen> {
     histories = ApiServices.getLatestHistoriesById(widget.inputText);
   }
 
+  String checkSpell(String position) {
+    switch (position) {
+      case "탑":
+        return "Teleport.webp";
+      case "정글":
+        return "Smite.webp";
+      case "미드":
+        return "Fire.webp";
+      case "원딜":
+        return "Heal.webp";
+      case "서폿":
+        return "Exhaust.webp";
+      default:
+        return "Fire.webp";
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -152,12 +169,12 @@ class _DetailScreenState extends State<DetailScreen> {
                         for (var h in histories)
                           Container(
                             margin: const EdgeInsets.only(top: 10),
-                            height: 100,
+                            height: 110,
                             color: const Color.fromARGB(255, 33, 33, 36),
                             child: Row(children: [
                               Container(
                                 color: h.result ? Colors.blue : Colors.red,
-                                width: 50,
+                                width: 40,
                                 child: Center(
                                   child: Text(
                                     h.result ? "승" : "패",
@@ -169,7 +186,63 @@ class _DetailScreenState extends State<DetailScreen> {
                                   ),
                                 ),
                               ),
-                              Container(),
+                              Container(
+                                padding: const EdgeInsets.all(10),
+                                child: Column(
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width: 53,
+                                          height: 53,
+                                          clipBehavior: Clip.hardEdge,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(15),
+                                          ),
+                                          child: Image.asset(
+                                            "assets/images/champions/${h.champion}.webp",
+                                          ),
+                                        ),
+                                        const SizedBox(width: 5),
+                                        SizedBox(
+                                          width: 25,
+                                          height: 53,
+                                          child: Column(
+                                            children: [
+                                              Container(
+                                                width: 25,
+                                                height: 25,
+                                                clipBehavior: Clip.hardEdge,
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(10),
+                                                ),
+                                                child: Image.asset(
+                                                  "assets/images/spells/${checkSpell(h.position)}",
+                                                ),
+                                              ),
+                                              const SizedBox(height: 3),
+                                              Container(
+                                                width: 25,
+                                                height: 25,
+                                                clipBehavior: Clip.hardEdge,
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(10),
+                                                ),
+                                                child: Image.asset(
+                                                  "assets/images/spells/Flash.webp",
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
                             ]),
                           ),
                       ],
